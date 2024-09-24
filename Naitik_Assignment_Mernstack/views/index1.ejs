@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- Add these links in the <head> section of your HTML -->
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.6/css/jquery.dataTables.css">
+<script type="text/javascript" charset="utf8" src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.11.6/js/jquery.dataTables.js"></script>
+
+    <style>
+      body {
+          font-family: 'Arial', sans-serif;
+          background-color: #f4f4f4;
+          margin: 0;
+          padding: 0;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          height: 100vh;
+      }
+
+      .container {
+          background-color: #fff;
+          padding: 20px;
+          border-radius: 8px;
+          margin-bottom: 600px;
+          margin-right:100px;
+          margin-left:400px;
+          box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+          text-align: center;
+      }
+
+      h1 {
+          color: #333;
+      }
+
+      input[type="file"] {
+          margin: 10px 0;
+      }
+
+      button {
+          background-color: #007bff;
+          color: #fff;
+          padding: 10px 20px;
+          border: none;
+          border-radius: 4px;
+          cursor: pointer;
+      }
+
+      p {
+          color: green;
+          margin-top: 10px;
+      }
+      .tbl{
+        margin-right:800px;
+        margin-bottom:20px;
+      }
+      table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 43000px;
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #007bff;
+            color: #fff;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+
+        tr:hover {
+            background-color: #f1f1f1;
+        }
+
+   
+  </style>
+</head>
+<body>
+    
+  <div class="container">
+   
+    <form action="/uploadexcelfile" method="post" enctype="multipart/form-data">
+        <input type="file" name="excelFile" accept=".xlsx">
+        <br>
+        <button type="submit">Upload Excel File</button>
+    </form>
+</div>
+
+    <center>
+      <table border="3px" id="myTable" class="tbl">
+        <tr>
+            <th>firstName</th>
+            <th>LastName</th>
+            <th>Email</th>
+            
+        
+        </tr>
+        <% d1.forEach(Todo => { %>
+          <tr>
+            <td>
+                <%= Todo.Firstname %>
+            </td>
+            <td>
+                <%= Todo.lastname %>
+            </td>
+            <td>
+              <%= Todo.email %>
+            </td>
+            
+        </tr>
+        
+    <% }) %>
+      </table>
+  </center>
+  <script>
+    $(document).ready( function () {
+        $('#myTable').DataTable();
+    });
+</script>
+  
+</body>
+</html>

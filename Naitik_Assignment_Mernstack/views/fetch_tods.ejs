@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Fetching all the data from the database</h1>
+    <center>
+    <table border="3px">
+        <tr>
+            <th>firstName</th>
+            <th>LastName</th>
+            <th>action</th>
+        </tr>
+
+        <% d.forEach(Todo => { %>
+            <tr>
+            <td>
+                <%= Todo.firstname %>
+                
+            </td>
+            <td>
+                <%= Todo.Lastname %>
+            </td>
+            <td>
+                <a href="/tdel/<%= Todo._id %>" >Delete</a>
+            </td>
+            <td><a href="/tupdate/<%= Todo._id %>" >Update</a></td>
+        </tr>
+            
+    <% }) %>
+    </table>
+</center>
+</body>
+</html>
